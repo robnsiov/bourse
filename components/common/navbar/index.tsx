@@ -19,12 +19,12 @@ const Navbar = () => {
           <div className="flex justify-start items-start flex-col mx-2"></div>
           <h3 className="relative top-[11px] text-[20px]">فائزه حیدری</h3>
         </div>
-        <div className="absolute left-1/2 top-[23px] -translate-x-1/2 flex justify-start items-center">
-          <Link href={"/"}>
+        <Link href={"/"}>
+          <div className="absolute left-1/2 top-[23px] -translate-x-1/2 flex justify-start items-center">
             <Image src={"/images/logo.png"} width={75} height={60} alt="logo" />
-          </Link>
-          <h1 className="font-semibold text-[30px] mr-1">فراشاخص</h1>
-        </div>
+            <h1 className="font-semibold text-[30px] mr-1">فراشاخص</h1>
+          </div>
+        </Link>
         <div className="flex justify-start items-center">
           <span className="ml-3">
             11:21:31 <span className="mx-1.5">|</span> 1402/11/11
