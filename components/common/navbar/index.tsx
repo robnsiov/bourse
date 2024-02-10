@@ -5,16 +5,7 @@ const Navbar = () => {
   return (
     <>
       <div className="w-full flex justify-between items-center bg-blue-primary text-white p-[24px] pb-[10px] relative overflow-hidden">
-        <div className="w-[170px] h-[170px] absolute top-[-50px] right-[-50px]">
-          <Image
-            src={"/images/blur-navbar.png"}
-            alt="blur-nanbar"
-            width={300}
-            height={300}
-            className="object-contain scale-[3] rotate-[18deg]"
-          />
-        </div>
-        <div className="flex justify-start items-start">
+        <div className="flex justify-start items-start relative z-20">
           <div className="min-w-[51px] aspect-square rounded-full bg-red-200"></div>
           <div className="flex justify-start items-start flex-col mx-2"></div>
           <h3 className="relative top-[11px] text-[20px]">فائزه حیدری</h3>

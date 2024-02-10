@@ -16,9 +16,18 @@ const RightSidebar = () => {
     <>
       <div
         className="w-[290px] h-[calc(100vh-85px)] fixed top-[85px] right-0 bg-blue-primary text-white
-      flex justify-start items-center flex-col"
+      flex justify-start items-center flex-col pt-3"
       >
-        <div className="w-[85%] flex justify-start items-start flex-col">
+        <div className="w-[200px] h-[300px] absolute top-[-100px] right-[-50px]">
+          <Image
+            src={"/images/blur-navbar.png"}
+            alt="blur-nanbar"
+            width={300}
+            height={300}
+            className="object-contain scale-[3] rotate-[18deg]"
+          />
+        </div>
+        <div className="w-[85%] flex justify-start items-start flex-col relative z-20">
           <div className="w-full flex justify-between items-center mb-3">
             <div className="flex justify-start items-center">
               <Image
@@ -55,7 +64,7 @@ const RightSidebar = () => {
           </div>
           <div className="w-full h-[1px] border-b-[1px] mb-1 border-white opacity-10"></div>
         </div>
-        <div className="flex justify-start items-start flex-col p-2 w-full">
+        <div className="flex justify-start items-start flex-col p-2 w-full relative z-20">
           {links.map(({ href, title, icon }) => (
             <Link
               href={href}
