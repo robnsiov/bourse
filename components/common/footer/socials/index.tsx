@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Socials = () => {
   return (
-    <>
+    <div className="flex justify-center items-center flex-col w-[25%]">
       <Link href={"/"} className="mb-4">
         <svg
           width="25"
@@ -58,7 +58,7 @@ const Socials = () => {
           />
         </svg>
       </Link>
-      <Link href={"/"} className="mb-4">
+      <Link href={"/"}>
         <svg
           width="25"
           height="25"
@@ -89,7 +89,7 @@ const Socials = () => {
           />
         </svg>
       </Link>
-    </>
+    </div>
   );
 };
 export default Socials;

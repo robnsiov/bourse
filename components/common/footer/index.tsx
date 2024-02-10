@@ -1,12 +1,13 @@
 import Image from "next/image";
 import About from "./about";
 import Links from "./links";
+import Socials from "./socials";
 
 const Footer = () => {
   return (
     <>
-      <div className="w-full bg-blue-primary text-white p-[33px] flex justify-start items-start flex-col relative overflow-hidden">
-        <div className="absolute top-[-50px] right-[-50px]">
+      <div className="w-full bg-blue-primary text-white p-[25px] flex justify-center items-center  relative overflow-hidden">
+        <div className="absolute top-[-50px] right-[-100px] scale-110">
           <div className="w-[200px] h-[200px]">
             <Image
               src={"/images/blur-footer.png"}
@@ -17,14 +18,10 @@ const Footer = () => {
             />
           </div>
         </div>
-        <div className="w-full flex justify-between items-start p-2 pt-6 relative z-10">
-          <div className="flex justify-between items-start w-full">
-            <About />
-            <Links />
-          </div>
-        </div>
-        <div className="w-full flex justify-end items-star">
-          <span>© تمام حقوق برای شاخص محفوظ است.</span>
+        <div className="w-full max-w-5xl flex justify-between items-start relative z-10">
+          <About />
+          <Socials />
+          <Links />
         </div>
       </div>
     </>
