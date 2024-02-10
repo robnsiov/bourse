@@ -13,6 +13,10 @@ const morabba = localFont({
       path: "../public/fonts/Morabba/webfont/fonts/woff2/Morabba-Medium.woff2",
       weight: "500",
     },
+    {
+      path: "../public/fonts/Morabba/webfont/fonts/woff2/Morabba-SemiBold.woff2",
+      weight: "600",
+    },
   ],
 });
 
@@ -33,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html>
       <body className={`${morabba.className}`} dir="rtl">
         <RootProvider>
           <RecoilProvider>
