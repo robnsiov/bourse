@@ -33,13 +33,13 @@ const RightSidebar = () => {
               <Image
                 src={sunIcon}
                 alt="sunIcon"
-                width={24}
+                width={20}
                 className="ml-2 cursor-pointer"
               />
               <Image
                 src={alertIcon}
                 alt="alertIcon"
-                width={24}
+                width={20}
                 className="cursor-pointer"
               />
             </div>
@@ -54,12 +54,12 @@ const RightSidebar = () => {
           </div>
           <div className="w-full relative">
             <input
-              className="w-full h-[48px] bg-transparent border-2 pl-3 pr-9 mb-3 rounded-[9px] 
-            border-blue-secondary outline-none"
+              className="w-full h-[48px] bg-transparent border-2 pl-3 pr-10 mb-3 rounded-[9px] 
+            border-blue-secondary outline-none placeholder:text-[19px]"
               placeholder="جستجوی  نماد/صنعت"
             />
-            <div className="absolute top-[10px] right-2 scale-[0.8] cursor-pointer">
-              <Image src={searchIcon} alt="search-icon" />
+            <div className="absolute top-[10px] right-3 cursor-pointer">
+              <Image src={searchIcon} alt="search-icon" width={24} />
             </div>
           </div>
           <div className="w-full h-[1px] border-b-[1px] mb-1 border-white opacity-10"></div>
@@ -71,9 +71,9 @@ const RightSidebar = () => {
               key={href}
               className={cls(
                 `w-full px-3 py-2 transition-all duration-200
-            hover:bg-[#29264b] rounded-[9px] mb-2 last:mb-0 relative overflow-hidden    
+            hover:bg-[#26283A] rounded-[9px] mb-2 last:mb-0 relative overflow-hidden    
              flex justify-start items-center group`,
-                { "bg-[#29264b]": pathname == href }
+                { "bg-[#26283A]": pathname == href }
               )}
             >
               <div

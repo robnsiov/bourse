@@ -12,7 +12,7 @@ const RootProvider = ({ children }: RootProviderImpl) => {
         <RightSidebar />
         <LeftSidebar />
         <div
-          className="bg-white min-h-[calc(100vh-85px)] w-[calc(100%-164px-290px)] relative
+          className="bg-[#FAFAFF] min-h-[calc(100vh-85px)] w-[calc(100%-164px-290px)] relative
          top-[85px] right-[63px] rounded-[36px] rounded-b-none"
         >
           <div className="w-full p-4">{children}</div>

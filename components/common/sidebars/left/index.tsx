@@ -28,9 +28,9 @@ const LeftSidebar = () => {
               key={href}
               className={cls(
                 `w-full px-3 py-2 transition-all duration-200
-            hover:bg-[#29264b] rounded-[9px] mb-2 last:mb-0 relative overflow-hidden    
+            hover:bg-[#26283A] rounded-[9px] mb-2 last:mb-0 relative overflow-hidden    
              flex justify-start items-center group`,
-                { "bg-[#29264b]": true }
+                { "bg-[#26283A]": true }
               )}
             >
               <span className="text-[17px] w-full text-center">{title}</span>
