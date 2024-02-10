@@ -7,12 +7,17 @@ import LeftSidebar from "@/components/common/sidebars/left";
 const RootProvider = ({ children }: RootProviderImpl) => {
   return (
     <>
-      <div className="w-full flex justify-between items-start flex-col min-h-screen bg-blue-primary">
+      <div className="w-full flex justify-center items-center flex-col min-h-screen bg-blue-primary">
         <Navbar />
         <RightSidebar />
         <LeftSidebar />
-        <div className="bg-red-400">{children}</div>
-        {/* <Footer /> */}
+        <div
+          className="bg-white min-h-[calc(100vh-85px)] w-[calc(100%-164px-290px)] relative
+         top-[85px] right-[63px] rounded-[36px] rounded-b-none"
+        >
+          <div className="w-full p-4">{children}</div>
+          <Footer />
+        </div>
       </div>
     </>
   );
