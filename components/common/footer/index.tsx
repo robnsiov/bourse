@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="absolute top-[-50px] right-[-50px]">
           <div className="w-[200px] h-[200px]">
             <Image
-              src={"/images/blur.png"}
+              src={"/images/blur-footer.png"}
               alt="blur-img"
               width={400}
               height={400}
