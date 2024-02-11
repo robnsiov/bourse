@@ -1,68 +1,20 @@
+import Overview from "./overview";
+import Efficiency from "./efficiency";
+import Trades from "./trades";
+import Informations from "./informations";
+
 const Details = () => {
   return (
     <>
-      <div className="w-full">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quidem
-        corrupti accusamus optio cumque tempora ratione, nam inventore facilis
-        dolorum, deleniti provident excepturi quae quia natus voluptates
-        distinctio maxime at. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Eum quidem corrupti accusamus optio cumque tempora
-        ratione, nam inventore facilis dolorum, deleniti provident excepturi
-        quae quia natus voluptates distinctio maxime at. Lorem ipsum dolor sit
-        amet, consectetur adipisicing elit. Eum quidem corrupti accusamus optio
-        cumque tempora ratione, nam inventore facilis dolorum, deleniti
-        provident excepturi quae quia natus voluptates distinctio maxime at.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quidem
-        corrupti accusamus optio cumque tempora ratione, nam inventore facilis
-        dolorum, deleniti provident excepturi quae quia natus voluptates
-        distinctio maxime at. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Eum quidem corrupti accusamus optio cumque tempora
-        ratione, nam inventore facilis dolorum, deleniti provident excepturi
-        quae quia natus voluptates distinctio maxime at. Lorem ipsum dolor sit
-        amet, consectetur adipisicing elit. Eum quidem corrupti accusamus optio
-        cumque tempora ratione, nam inventore facilis dolorum, deleniti
-        provident excepturi quae quia natus voluptates distinctio maxime at.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quidem
-        corrupti accusamus optio cumque tempora ratione, nam inventore facilis
-        dolorum, deleniti provident excepturi quae quia natus voluptates
-        distinctio maxime at. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Eum quidem corrupti accusamus optio cumque tempora
-        ratione, nam inventore facilis dolorum, deleniti provident excepturi
-        quae quia natus voluptates distinctio maxime at. Lorem ipsum dolor sit
-        amet, consectetur adipisicing elit. Eum quidem corrupti accusamus optio
-        cumque tempora ratione, nam inventore facilis dolorum, deleniti
-        provident excepturi quae quia natus voluptates distinctio maxime at.
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quidem
-        corrupti accusamus optio cumque tempora ratione, nam inventore facilis
-        dolorum, deleniti provident excepturi quae quia natus voluptates quae
-        quia natus voluptates distinctio maxime at. Lorem ipsum dolor sit amet,
-        consectetur adipisicing elit. Eum quidem corrupti accusamus optio cumque
-        tempora ratione, nam inventore facilis dolorum, deleniti provident
-        excepturi quae quia natus voluptates distinctio maxime at. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit. Eum quidem corrupti
-        accusamus optio cumque tempora ratione, nam inventore facilis dolorum,
-        deleniti provident excepturi quae quia natus voluptates quae quia natus
-        voluptates distinctio maxime at. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Eum quidem corrupti accusamus optio cumque tempora
-        ratione, nam inventore facilis dolorum, deleniti provident excepturi
-        quae quia natus voluptates distinctio maxime at. Lorem ipsum dolor sit
-        amet, consectetur adipisicing elit. Eum quidem corrupti accusamus optio
-        cumque tempora ratione, nam inventore facilis dolorum, deleniti
-        provident excepturi quae quia natus voluptates quae quia natus
-        voluptates distinctio maxime at. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Eum quidem corrupti accusamus optio cumque tempora
-        ratione, nam inventore facilis dolorum, deleniti provident excepturi
-        quae quia natus voluptates distinctio maxime at. Lorem ipsum dolor sit
-        amet, consectetur adipisicing elit. Eum quidem corrupti accusamus optio
-        cumque tempora ratione, nam inventore facilis dolorum, deleniti
-        provident excepturi quae quia natus voluptates quae quia natus
-        voluptates distinctio maxime at. Lorem ipsum dolor sit amet, consectetur
-        adipisicing elit. Eum quidem corrupti accusamus optio cumque tempora
-        ratione, nam inventore facilis dolorum, deleniti provident excepturi
-        quae quia natus voluptates distinctio maxime at. Lorem ipsum dolor sit
-        amet, consectetur adipisicing elit. Eum quidem corrupti accusamus optio
-        cumque tempora ratione, nam inventore facilis dolorum, deleniti
-        provident excepturi quae quia natus voluptates distinctio maxime at.
+      <div className="w-full flex justify-start items-start">
+        <div className="w-full flex justify-start items-start flex-col p-5">
+          <Informations />
+          <div className="w-[516px] flex justify-start items-start flex-col">
+            <Trades />
+            <Efficiency />
+          </div>
+        </div>
+        <Overview />
       </div>
     </>
   );

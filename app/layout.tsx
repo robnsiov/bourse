@@ -1,4 +1,12 @@
 import localFont from "next/font/local";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
 const morabba = localFont({
   src: [
     {
@@ -16,6 +24,40 @@ const morabba = localFont({
     {
       path: "../public/fonts/Morabba/webfont/fonts/woff2/Morabba-SemiBold.woff2",
       weight: "600",
+    },
+  ],
+});
+const iranSansX = localFont({
+  variable: "--font-iran-sans-x",
+  src: [
+    {
+      path: "../public/fonts/IRANSansX/Woff2/IRANSansXFaNum_Light.woff2",
+      weight: "300",
+    },
+    {
+      path: "../public/fonts/IRANSansX/Woff2/IRANSansXFaNum_Regular.woff2",
+      weight: "400",
+    },
+    {
+      path: "../public/fonts/IRANSansX/Woff2/IRANSansXFaNum_Medium.woff2",
+      weight: "500",
+    },
+  ],
+});
+const peyda = localFont({
+  variable: "--font-peyda",
+  src: [
+    {
+      path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Light.woff2",
+      weight: "300",
+    },
+    {
+      path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Regular.woff2",
+      weight: "400",
+    },
+    {
+      path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Medium.woff2",
+      weight: "500",
     },
   ],
 });
@@ -38,7 +80,10 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body className={`${morabba.className}`} dir="rtl">
+      <body
+        className={`${morabba.className} ${iranSansX.variable} ${inter.variable} ${peyda.variable}`}
+        dir="rtl"
+      >
         <RootProvider>
           <RecoilProvider>
             <ReactQueryProvider>{children}</ReactQueryProvider>

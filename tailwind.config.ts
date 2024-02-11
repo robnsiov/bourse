@@ -19,6 +19,11 @@ const config: Config = {
       "1362px": { max: "1362px" },
     },
     extend: {
+      fontFamily: {
+        iransansx: ["var(--font-iran-sans-x)"],
+        inter: ["var(--font-inter)"],
+        peyda: ["var(--font-peyda)"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

@@ -13,9 +13,9 @@ const RootProvider = ({ children }: RootProviderImpl) => {
         <LeftSidebar />
         <div
           className="bg-[#FAFAFF] min-h-[calc(100vh-85px)] w-[calc(100%-164px-290px)] relative
-         top-[85px] right-[63px] rounded-[36px] rounded-b-none"
+         top-[85px] right-[63px] rounded-[36px] rounded-b-none overflow-hidden"
         >
-          <div className="w-full p-4">{children}</div>
+          <div className="w-full min-h-[450px]">{children}</div>
           <Footer />
         </div>
       </div>
