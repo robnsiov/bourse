@@ -90,7 +90,7 @@ const RightSidebar = () => {
               <div
                 className={cls(
                   `ml-2 opacity-20 group-hover:opacity-100 duration-200 transition-all`,
-                  { "opacity-100": pathname === href }
+                  { "!opacity-100": pathname === href }
                 )}
               >
                 <Image
