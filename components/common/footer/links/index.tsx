@@ -13,7 +13,7 @@ const Links = () => {
       <div className="flex justify-start items-start flex-col w-[35%]">
         <div className="w-full flex justify-between items-center">
           {links.map(({ href, name }) => (
-            <Link className="" href={href}>
+            <Link className="" key={name} href={href}>
               {name}
             </Link>
           ))}

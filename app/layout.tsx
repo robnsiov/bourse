@@ -55,18 +55,18 @@ const iranSansX = localFont({
 const peyda = localFont({
   variable: "--font-peyda",
   src: [
-    {
-      path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Light.woff2",
-      weight: "300",
-    },
-    {
-      path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Regular.woff2",
-      weight: "400",
-    },
-    {
-      path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Medium.woff2",
-      weight: "500",
-    },
+    // {
+    //   path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Light.woff2",
+    //   weight: "300",
+    // },
+    // {
+    //   path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Regular.woff2",
+    //   weight: "400",
+    // },
+    // {
+    //   path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Medium.woff2",
+    //   weight: "500",
+    // },
   ],
 });
 
