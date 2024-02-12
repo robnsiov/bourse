@@ -16,8 +16,6 @@ const Informations = () => {
   const mouseEnter = () => setShowTooltip(true);
   const mouseLeaeve = () => setShowTooltip(false);
 
-  console.log(x);
-
   const min = 6970;
   const max = 8010;
   const total = min + max;

@@ -1,7 +1,17 @@
 import Image from "next/image";
 import fullscreenIcon from "../../../../public/icons/fullscreen.svg";
+import useChart from "./use";
+import cls from "classnames";
 
 const Chart = () => {
+  const {
+    activeChartType,
+    chartTypes,
+    setActiveChartType,
+    chartDays,
+    activeChartDay,
+    setActiveChartDay,
+  } = useChart();
   return (
     <>
       <div
@@ -21,17 +31,24 @@ const Chart = () => {
               "
               dir="ltr"
             >
-              {Array.from({ length: 10 }).map((_, i) => (
+              {chartTypes.map(({ title }) => (
                 <div
-                  key={i}
-                  className="rounded-[11px]  px-5 py-3
+                  onClick={() => setActiveChartType(title)}
+                  key={title}
+                  className={cls(
+                    `rounded-[11px]  px-5 py-3 min-h-[76px]
                 border-2 border-blue-secondary font-semibold
                  text-orange-primary transition-all duration-200 
                  hover:bg-blue-secondary hover:text-white cursor-pointer
-                 hover:shadow-primary mb-5 last:mb-0 w-[166px]"
+                 hover:shadow-primary mb-5 last:mb-0 w-[166px]`,
+                    {
+                      "bg-blue-secondary shadow-primary text-white":
+                        title === activeChartType,
+                    }
+                  )}
                   dir="rtl"
                 >
-                  حاشیه سود عملیاتی فصلی فملی
+                  {title}
                 </div>
               ))}
             </div>
@@ -62,48 +79,25 @@ const Chart = () => {
               </div>
             </div>
             <div className="flex justify-start items-start">
-              <div
-                className="text-[12px] border-2 border-blue-secondary font-iransansx
+              {chartDays.map(({ days, title, number }) => (
+                <div
+                  onClick={() => setActiveChartDay(days)}
+                  key={title + number}
+                  className={cls(
+                    `text-[12px] border-2 border-blue-secondary font-iransansx
                 text-blue-secondary p-y0.5 px-1 rounded-[5px] cursor-pointer transition-all duration-200
-                hover:bg-blue-secondary hover:text-white hover:border-gray-secondary ml-2.5 min-h-[24px] whitespace-nowrap"
-              >
-                <span>امروز</span>
-              </div>
-              <div
-                className="text-[12px] border-2 border-blue-secondary font-iransansx
-                text-blue-secondary p-y0.5 px-1 rounded-[5px] cursor-pointer transition-all duration-200
-                hover:bg-blue-secondary hover:text-white hover:border-gray-secondary ml-2.5 min-h-[24px] whitespace-nowrap"
-              >
-                <span className="font-inter">1</span> <span>هفته</span>
-              </div>
-              <div
-                className="text-[12px] border-2 border-blue-secondary font-iransansx
-                text-blue-secondary p-y0.5 px-1 rounded-[5px] cursor-pointer transition-all duration-200
-                hover:bg-blue-secondary hover:text-white hover:border-gray-secondary ml-2.5 min-h-[24px] whitespace-nowrap"
-              >
-                <span className="font-inter">1</span> <span>ماه</span>
-              </div>
-              <div
-                className="text-[12px] border-2 border-blue-secondary font-iransansx
-                text-blue-secondary p-y0.5 px-1 rounded-[5px] cursor-pointer transition-all duration-200
-                hover:bg-blue-secondary hover:text-white hover:border-gray-secondary ml-2.5 min-h-[24px] whitespace-nowrap"
-              >
-                <span className="font-inter">3</span> <span>ماه</span>
-              </div>
-              <div
-                className="text-[12px] border-2 border-blue-secondary font-iransansx
-                text-blue-secondary p-y0.5 px-1 rounded-[5px] cursor-pointer transition-all duration-200
-                hover:bg-blue-secondary hover:text-white hover:border-gray-secondary ml-2.5 min-h-[24px] whitespace-nowrap"
-              >
-                <span className="font-inter">6</span> <span>ماه</span>
-              </div>
-              <div
-                className="text-[12px] border-2 border-blue-secondary font-iransansx
-                text-blue-secondary p-y0.5 px-1 rounded-[5px] cursor-pointer transition-all duration-200
-                hover:bg-blue-secondary hover:text-white hover:border-gray-secondary min-h-[24px] whitespace-nowrap"
-              >
-                <span className="font-inter">1</span> <span>سال</span>
-              </div>
+                hover:bg-blue-secondary hover:text-white hover:border-gray-secondary 
+                ml-2.5 min-h-[24px] whitespace-nowrap`,
+                    {
+                      "text-white border-gray-secondary bg-blue-secondary":
+                        activeChartDay === days,
+                    }
+                  )}
+                >
+                  {number && <span className="font-inter">{number}</span>}{" "}
+                  <span>{title}</span>
+                </div>
+              ))}
             </div>
           </div>
           <div className="w-full h-[300px] bg-gray-200"></div>
