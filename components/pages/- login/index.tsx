@@ -10,7 +10,7 @@ import logo from "../../../public/images/logo.png";
 const Login = () => {
   return (
     <>
-      <div className="fixed inset-0 z-[999] bg-blue-primary flex justify-center items-center flex-col">
+      <div className="w-full min-h-screen bg-blue-primary flex justify-center items-center flex-col">
         <Link
           href={"/"}
           className="absolute top-5 right-5 flex justify-start items-center"

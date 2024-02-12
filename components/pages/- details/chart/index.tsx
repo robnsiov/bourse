@@ -2,6 +2,7 @@ import Image from "next/image";
 import fullscreenIcon from "../../../../public/icons/fullscreen.svg";
 import useChart from "./use";
 import cls from "classnames";
+import "./index.css";
 
 const Chart = () => {
   const {

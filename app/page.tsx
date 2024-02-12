@@ -1,9 +1,7 @@
-import Details from "@/components/pages/- details";
-
 const Page = () => {
   return (
     <>
-      <Details />
+      <p>home</p>
     </>
   );
 };

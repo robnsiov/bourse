@@ -3,10 +3,12 @@ import Overview from "./overview";
 import Efficiency from "./efficiency";
 import Trades from "./trades";
 import Informations from "./informations";
-import "./index.css";
 import Chart from "./chart";
+import DetailsImpl from "./types";
+import useDetails from "./use";
 
-const Details = () => {
+const Details = ({ id }: DetailsImpl) => {
+  const {} = useDetails({ id });
   return (
     <>
       <div className="w-full flex justify-start items-start">

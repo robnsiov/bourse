@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import useLeftSidebar from "./use";
 import cls from "classnames";
@@ -5,7 +6,7 @@ import rightToggleIcon from "../../../../public/icons/right-toggle.svg";
 import Image from "next/image";
 
 const LeftSidebar = () => {
-  const { options } = useLeftSidebar();
+  const { views, pathnameWithoutView, activeView } = useLeftSidebar();
   return (
     <>
       <div
@@ -22,15 +23,15 @@ const LeftSidebar = () => {
         </div>
 
         <div className="flex justify-start items-start flex-col p-2 w-full relative z-20">
-          {options.map(({ href, title }) => (
+          {views.map(({ href, title }) => (
             <Link
-              href={href}
+              href={`${pathnameWithoutView}/${href}`}
               key={href}
               className={cls(
                 `w-full px-3 py-2 transition-all duration-200
             hover:bg-[#26283A] rounded-[9px] mb-2 last:mb-0 relative overflow-hidden    
              flex justify-start items-center group`,
-                { "bg-[#26283A]": true }
+                { "bg-[#26283A]": activeView === href }
               )}
             >
               <span className="text-[20px] w-full text-center">{title}</span>
