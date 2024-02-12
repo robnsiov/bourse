@@ -7,6 +7,8 @@ import searchIcon from "../../../../public/icons/search.svg";
 import rightToggleIcon from "../../../../public/icons/right-toggle.svg";
 import alertIcon from "../../../../public/icons/alert.svg";
 import sunIcon from "../../../../public/icons/sun.svg";
+import goldIcon from "../../../../public/icons/gold.svg";
+import silverIcon from "../../../../public/icons/silver.svg";
 import Image from "next/image";
 
 const RightSidebar = () => {
@@ -15,31 +17,48 @@ const RightSidebar = () => {
   return (
     <>
       <div
-        className="w-[290px] h-[calc(100vh-85px)] fixed top-[85px] right-0 bg-blue-primary text-white
+        className="w-[290px] h-[100vh] fixed inset-y-0  right-0 bg-blue-primary text-white
       flex justify-start items-center flex-col pt-3"
       >
-        <div className="w-[200px] h-[300px] absolute top-[-100px] right-[-50px]">
+        <div className="w-[210px] h-[200px] absolute top-[-50px] right-[-50px] z-[1]">
           <Image
             src={"/images/blur-navbar.png"}
             alt="blur-nanbar"
             width={300}
             height={300}
-            className="object-contain scale-[3] rotate-[18deg]"
+            className="object-contain scale-[3.5] rotate-[-18deg] opacity-80"
           />
         </div>
         <div className="w-[85%] flex justify-start items-start flex-col relative z-20">
+          <div className="flex justify-start items-center relative mb-10">
+            <div className="min-w-[51px] max-w-[51px] aspect-square rounded-full overflow-hidden">
+              <Image
+                src={"/images/girl.png"}
+                alt="user-profile"
+                width={200}
+                height={200}
+                className="
+              object-fill w-full h-full object-center"
+              />
+            </div>
+            <div className="flex justify-center items-center flex-col mx-2.5 relative top-[19px]">
+              <Image src={goldIcon} alt="goldIcon" width={28} />
+              <Image src={silverIcon} alt="silverIcon" width={28} />
+            </div>
+            <h3 className="relative text-[24px]">فائزه حیدری</h3>
+          </div>
           <div className="w-full flex justify-between items-center mb-3">
             <div className="flex justify-start items-center">
               <Image
                 src={sunIcon}
                 alt="sunIcon"
-                width={20}
+                width={28}
                 className="ml-2 cursor-pointer"
               />
               <Image
                 src={alertIcon}
                 alt="alertIcon"
-                width={20}
+                width={28}
                 className="cursor-pointer"
               />
             </div>
@@ -48,7 +67,7 @@ const RightSidebar = () => {
                 src={rightToggleIcon}
                 alt="rightToggleIcon"
                 className="cursor-pointer"
-                width={30}
+                width={36}
               />
             </div>
           </div>
@@ -100,7 +119,13 @@ const RightSidebar = () => {
                   height={20}
                 />
               </div>
-              <span className="text-[17px]">{title}</span>
+              <span
+                className={cls(`text-[16px]`, {
+                  "!text-[24px]": pathname === href,
+                })}
+              >
+                {title}
+              </span>
             </Link>
           ))}
         </div>

@@ -20,10 +20,10 @@ const Efficiency = () => {
                 یک هفته
               </span>
               <div
-                className="w-[127px] bg-[#EFF2F7] h-[5px] rounded-[5px] relative 
+                className="w-[127px] bg-gray-secondary h-[5px] rounded-[5px] relative 
                     flex justify-start items-start"
               >
-                <div className="rounded-[5px] bg-[#008000] w-[70%] h-[5px] relative">
+                <div className="rounded-[5px] bg-green-primary w-[70%] h-[5px] relative">
                   <span className="absolute left-0  top-2 text-[9px] font-inter">
                     70%+
                   </span>
@@ -35,10 +35,10 @@ const Efficiency = () => {
                 یک ماهه
               </span>
               <div
-                className="w-[127px] bg-[#EFF2F7] h-[5px] rounded-[5px] relative 
+                className="w-[127px] bg-gray-secondary h-[5px] rounded-[5px] relative 
                     flex justify-start items-start"
               >
-                <div className="rounded-[5px] bg-[#FF0000] w-[30%] h-[5px] relative">
+                <div className="rounded-[5px] bg-red-primary w-[30%] h-[5px] relative">
                   <span className="absolute left-0  top-2 text-[9px] font-inter">
                     30%-
                   </span>
@@ -50,10 +50,10 @@ const Efficiency = () => {
                 سه ماهه
               </span>
               <div
-                className="w-[127px] bg-[#EFF2F7] h-[5px] rounded-[5px] relative 
+                className="w-[127px] bg-gray-secondary h-[5px] rounded-[5px] relative 
                     flex justify-start items-start"
               >
-                <div className="rounded-[5px] bg-[#008000] w-[50%] h-[5px] relative">
+                <div className="rounded-[5px] bg-green-primary w-[50%] h-[5px] relative">
                   <span className="absolute left-0  top-2 text-[9px] font-inter">
                     50%+
                   </span>
@@ -65,10 +65,10 @@ const Efficiency = () => {
                 یکساله
               </span>
               <div
-                className="w-[127px] bg-[#EFF2F7] h-[5px] rounded-[5px] relative 
+                className="w-[127px] bg-gray-secondary h-[5px] rounded-[5px] relative 
                     flex justify-start items-start"
               >
-                <div className="rounded-[5px] bg-[#FF0000] w-[90%] h-[5px] relative">
+                <div className="rounded-[5px] bg-red-primary w-[90%] h-[5px] relative">
                   <span className="absolute left-0  top-2 text-[9px] font-inter">
                     90%-
                   </span>
@@ -82,10 +82,10 @@ const Efficiency = () => {
                 یک هفته
               </span>
               <div
-                className="w-[127px] bg-[#EFF2F7] h-[5px] rounded-[5px] relative 
+                className="w-[127px] bg-gray-secondary h-[5px] rounded-[5px] relative 
                     flex justify-start items-start"
               >
-                <div className="rounded-[5px] bg-[#008000] w-[70%] h-[5px] relative">
+                <div className="rounded-[5px] bg-green-primary w-[70%] h-[5px] relative">
                   <span className="absolute left-0  top-2 text-[9px] font-inter">
                     70%+
                   </span>
@@ -97,10 +97,10 @@ const Efficiency = () => {
                 یک ماهه
               </span>
               <div
-                className="w-[127px] bg-[#EFF2F7] h-[5px] rounded-[5px] relative 
+                className="w-[127px] bg-gray-secondary h-[5px] rounded-[5px] relative 
                     flex justify-start items-start"
               >
-                <div className="rounded-[5px] bg-[#FF0000] w-[30%] h-[5px] relative">
+                <div className="rounded-[5px] bg-red-primary w-[30%] h-[5px] relative">
                   <span className="absolute left-0  top-2 text-[9px] font-inter">
                     30%-
                   </span>
@@ -112,10 +112,10 @@ const Efficiency = () => {
                 سه ماهه
               </span>
               <div
-                className="w-[127px] bg-[#EFF2F7] h-[5px] rounded-[5px] relative 
+                className="w-[127px] bg-gray-secondary h-[5px] rounded-[5px] relative 
                     flex justify-start items-start"
               >
-                <div className="rounded-[5px] bg-[#008000] w-[50%] h-[5px] relative">
+                <div className="rounded-[5px] bg-green-primary w-[50%] h-[5px] relative">
                   <span className="absolute left-0  top-2 text-[9px] font-inter">
                     50%+
                   </span>
@@ -127,10 +127,10 @@ const Efficiency = () => {
                 یکساله
               </span>
               <div
-                className="w-[127px] bg-[#EFF2F7] h-[5px] rounded-[5px] relative 
+                className="w-[127px] bg-gray-secondary h-[5px] rounded-[5px] relative 
                     flex justify-start items-start"
               >
-                <div className="rounded-[5px] bg-[#FF0000] w-[90%] h-[5px] relative">
+                <div className="rounded-[5px] bg-red-primary w-[90%] h-[5px] relative">
                   <span className="absolute left-0  top-2 text-[9px] font-inter">
                     90%-
                   </span>

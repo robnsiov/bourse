@@ -9,7 +9,7 @@ const LeftSidebar = () => {
   return (
     <>
       <div
-        className="w-[164px] h-[calc(100vh-85px)] fixed top-[85px] left-0 bg-blue-primary text-white
+        className="w-[166px] h-[calc(100vh-76px)] fixed top-[85px] left-0 bg-blue-primary text-white
       flex justify-start items-start flex-col pt-3"
       >
         <div className="flex justify-start items-center mb-10 mt-1 mr-4 scale-[-1]">
@@ -17,7 +17,7 @@ const LeftSidebar = () => {
             src={rightToggleIcon}
             alt="rightToggleIcon"
             className="cursor-pointer"
-            width={30}
+            width={36}
           />
         </div>
 
@@ -33,7 +33,7 @@ const LeftSidebar = () => {
                 { "bg-[#26283A]": true }
               )}
             >
-              <span className="text-[17px] w-full text-center">{title}</span>
+              <span className="text-[20px] w-full text-center">{title}</span>
             </Link>
           ))}
         </div>

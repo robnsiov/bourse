@@ -39,112 +39,112 @@ const Overview = () => {
         </div>
         <div className="w-full flex justify-start items-start flex-col mt-8 mb-[20px]">
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               آخرین قیمت
             </div>
-            <div className="text-[#FF0000] text-[14px]">7.400</div>
+            <div className="text-red-primary text-[14px]">7.400</div>
           </div>
           <div className="w-full flex justify-between items-start">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               قیمت پایانی
             </div>
-            <div className="text-[#FF0000] text-[14px]">7.400</div>
+            <div className="text-red-primary text-[14px]">7.400</div>
           </div>
         </div>
-        <div className="border-[#757575] w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>
+        <div className="border-gray-primary w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>
         <div className="w-full flex justify-start items-start flex-col mb-[20px]">
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               ورود پول حقوقی در هفته
             </div>
-            <div className="text-[#008000] text-[14px]">52M</div>
+            <div className="text-green-primary text-[14px]">52M</div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               ورود پول حقوقی در ماه
             </div>
-            <div className="text-[#008000] text-[14px]">245.4</div>
+            <div className="text-green-primary text-[14px]">245.4</div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               میانگین قیمت 50 روزه
             </div>
             <div className="text-[#070707] text-[14px]">7K</div>
           </div>
           <div className="w-full flex justify-between items-start">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               میانگین قیمت 100 روزه
             </div>
             <div className="text-[#070707] text-[14px]">7.1K</div>
           </div>
         </div>
-        <div className="border-[#757575] w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>
+        <div className="border-gray-primary w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>
         <div className="w-full flex justify-start items-start flex-col mb-[20px]">
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               EPS
             </div>
-            <div className="text-[#008000] text-[14px]">1.027</div>
+            <div className="text-green-primary text-[14px]">1.027</div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               p/e
             </div>
-            <div className="text-[#008000] text-[14px]">245.4</div>
+            <div className="text-green-primary text-[14px]">245.4</div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               گروهی p/e
             </div>
             <div className="text-[#070707] text-[14px]">7K</div>
           </div>
           <div className="w-full flex justify-between items-start">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               نسبت PE نماد به PE گروه
             </div>
             <div className="text-[#070707] text-[14px]">7.1K</div>
           </div>
         </div>
-        <div className="border-[#757575] w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>
+        <div className="border-gray-primary w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>
         <h3 className="text-[20px] font-medium mb-[10px] -mt-2">
           نرخ رشد فملی
         </h3>
         <div className="w-full flex justify-start items-start flex-col">
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد سود خالص نسبت به فصل قبل
             </div>
-            <div className="text-[#FF0000] text-[14px]">20%-</div>
+            <div className="text-red-primary text-[14px]">20%-</div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد سود خالص نسبت به فصل مشابه
             </div>
-            <div className="text-[#008000] text-[14px]">23%+</div>
+            <div className="text-green-primary text-[14px]">23%+</div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد سود عملیاتی نسبت به فصل قبل
             </div>
-            <div className="text-[#FF0000] text-[14px]">83%-</div>
+            <div className="text-red-primary text-[14px]">83%-</div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد سود عملیاتی نسبت به فصل مشابه
             </div>
-            <div className="text-[#008000] text-[14px]">33%+</div>
+            <div className="text-green-primary text-[14px]">33%+</div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد درآمد نسبت به ماه قبل
             </div>
-            <div className="text-[#008000] text-[14px]">15%+</div>
+            <div className="text-green-primary text-[14px]">15%+</div>
           </div>
           <div className="w-full flex justify-between items-start">
-            <div className="text-[#757575] max-w-[160px] font-iransansx text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد درآمد نسبت به ماه مشابه سال قبل
             </div>
-            <div className="text-[#008000] text-[14px]">16%+</div>
+            <div className="text-green-primary text-[14px]">16%+</div>
           </div>
         </div>
       </div>

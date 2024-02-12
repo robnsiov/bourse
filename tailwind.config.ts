@@ -19,6 +19,9 @@ const config: Config = {
       "1362px": { max: "1362px" },
     },
     extend: {
+      boxShadow: {
+        primary: "0px 0px 12px 0px rgba(91, 101, 204, 0.36)",
+      },
       fontFamily: {
         iransansx: ["var(--font-iran-sans-x)"],
         inter: ["var(--font-inter)"],
@@ -32,6 +35,11 @@ const config: Config = {
       colors: {
         "blue-primary": "#14151F",
         "blue-secondary": "#5B65CC",
+        "red-primary": "#FF0000",
+        "green-primary": "#008000",
+        "gray-primary": "#757575",
+        "gray-secondary": "#EFF2F7",
+        "orange-primary": "#EB9F5D",
       },
     },
   },

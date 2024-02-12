@@ -1,10 +1,10 @@
 const options = [
   {
-    title: "خانه",
+    title: "در یک نگاه",
     href: "/",
   },
   {
-    title: "گزارش لحظه ای بازار",
+    title: "تولید و فروش",
     href: "/reports",
   },
 ];
