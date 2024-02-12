@@ -91,8 +91,8 @@ const RightSidebar = () => {
               className={cls(
                 `w-full px-3 py-2 transition-all duration-200
             hover:bg-[#26283A] rounded-[9px] mb-2 last:mb-0 relative overflow-hidden    
-             flex justify-start items-center group`,
-                { "bg-[#26283A]": pathname == href }
+             flex justify-start items-center group border-2 border-transparent`,
+                { "bg-[#26283A] border-black": pathname == href }
               )}
             >
               <div

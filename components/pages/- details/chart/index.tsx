@@ -16,6 +16,7 @@ const Chart = () => {
             <div
               className="w-full h-full flex justify-start items-start flex-col 
                  overflow-y-auto p-2
+                 overflow-x-hidden
               chart-custom-scrollbar 
               "
               dir="ltr"
