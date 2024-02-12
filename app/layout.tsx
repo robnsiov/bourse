@@ -25,6 +25,10 @@ const morabba = localFont({
       path: "../public/fonts/Morabba/webfont/fonts/woff2/Morabba-SemiBold.woff2",
       weight: "600",
     },
+    {
+      path: "../public/fonts/Morabba/webfont/fonts/woff2/Morabba-Bold.woff2",
+      weight: "700",
+    },
   ],
 });
 const iranSansX = localFont({
@@ -41,6 +45,10 @@ const iranSansX = localFont({
     {
       path: "../public/fonts/IRANSansX/Woff2/IRANSansXFaNum_Medium.woff2",
       weight: "500",
+    },
+    {
+      path: "../public/fonts/IRANSansX/Woff2/IRANSansXFaNum_Bold.woff2",
+      weight: "700",
     },
   ],
 });
