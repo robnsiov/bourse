@@ -1,7 +1,25 @@
 import Image from "next/image";
 import femeliIcon from "../../../../public/images/femeli.svg";
+import OverviewImpl from "./types";
+import cls from "classnames";
+import HOST from "@/host";
 
-const Overview = () => {
+const Overview = ({
+  getFinalPrice,
+  getGroupPE,
+  getLastPrice,
+  getMonthEntryLegalMoney,
+  getPE,
+  getPES,
+  getPEtoPE,
+  getPlAverage100Day,
+  getPlAverage50Day,
+  getWeekEntryLegalMoney,
+  getGroupName,
+  getSymbolLogo,
+  getSymbol,
+  getSymbolName,
+}: OverviewImpl) => {
   return (
     <>
       <div
@@ -16,25 +34,30 @@ const Overview = () => {
               <span className="absolute -inset-[2px] rounded-full bg-[#28c27847]"></span>
             </div>
             <div
-              className="min-w-[36px] h-[37px] rounded-[6px] border-[2px] border-blue-secondary
+              className="min-w-[36px] max-w-[36px] h-[37px] rounded-[6px] border-[2px] border-blue-secondary
               mr-4 ml-2 p-1 flex justify-center items-center"
             >
-              <Image src={femeliIcon} alt="femeliICon" />
+              <Image
+                src={`${HOST.baseURL}${getSymbolLogo()}`}
+                width={100}
+                height={150}
+                alt="femeliICon"
+              />
             </div>
             <div
               className="w-full bg-blue-secondary rounded-[9px] flex justify-start items-center
               text-white h-[37px] px-4"
             >
-              <h4 className="text-[18px]">فملی</h4>
+              <h4 className="text-[18px]">{getSymbol()}</h4>
               <span className="text-[12px] mr-2 font-light">
-                ملی صنایع مس ایران
+                {getSymbolName()}
               </span>
             </div>
           </div>
         </div>
         <div className="w-full mt-1">
           <span className="text-[12px] text-blue-secondary mr-[22px]">
-            گروه فلزات اساسی بورس
+            {getGroupName()}
           </span>
         </div>
         <div className="w-full flex justify-start items-start flex-col mt-8 mb-[20px]">
@@ -42,13 +65,17 @@ const Overview = () => {
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               آخرین قیمت
             </div>
-            <div className="text-red-primary text-[14px]">7.400</div>
+            <div className={cls(`text-[14px]`, getLastPrice().color)}>
+              {getLastPrice().value}
+            </div>
           </div>
           <div className="w-full flex justify-between items-start">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               قیمت پایانی
             </div>
-            <div className="text-red-primary text-[14px]">7.400</div>
+            <div className={cls(`text-[14px]`, getFinalPrice().color)}>
+              {getFinalPrice().value}
+            </div>
           </div>
         </div>
         <div className="border-gray-primary w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>
@@ -57,25 +84,35 @@ const Overview = () => {
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               ورود پول حقوقی در هفته
             </div>
-            <div className="text-green-primary text-[14px]">52M</div>
+            <div className={cls(`text-[14px]`, getWeekEntryLegalMoney().color)}>
+              {getWeekEntryLegalMoney().value}
+            </div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               ورود پول حقوقی در ماه
             </div>
-            <div className="text-green-primary text-[14px]">245.4</div>
+            <div
+              className={cls(`text-[14px]`, getMonthEntryLegalMoney().color)}
+            >
+              {getMonthEntryLegalMoney().value}
+            </div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               میانگین قیمت 50 روزه
             </div>
-            <div className="text-[#070707] text-[14px]">7K</div>
+            <div className={cls(`text-[14px]`, getPlAverage50Day().color)}>
+              {getPlAverage50Day().value}
+            </div>
           </div>
           <div className="w-full flex justify-between items-start">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               میانگین قیمت 100 روزه
             </div>
-            <div className="text-[#070707] text-[14px]">7.1K</div>
+            <div className={cls(`text-[14px]`, getPlAverage100Day().color)}>
+              {getPlAverage100Day().value}
+            </div>
           </div>
         </div>
         <div className="border-gray-primary w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>
@@ -84,25 +121,37 @@ const Overview = () => {
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               EPS
             </div>
-            <div className="text-green-primary text-[14px]">1.027</div>
+            <div className={cls(`text-[14px]`, getPES().color)}>
+              {getPES().value}
+            </div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               p/e
             </div>
-            <div className="text-green-primary text-[14px]">245.4</div>
+            <div className={cls(`text-[14px]`, getPE().color)}>
+              {getPE().value}
+            </div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               گروهی p/e
             </div>
-            <div className="text-[#070707] text-[14px]">7K</div>
+            <div
+              className={cls(`text-[#070707] text-[14px]`, getGroupPE().color)}
+            >
+              {getGroupPE().value}
+            </div>
           </div>
           <div className="w-full flex justify-between items-start">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               نسبت PE نماد به PE گروه
             </div>
-            <div className="text-[#070707] text-[14px]">7.1K</div>
+            <div
+              className={cls(`text-[#070707] text-[14px]`, getPEtoPE().color)}
+            >
+              {getPEtoPE().value}
+            </div>
           </div>
         </div>
         <div className="border-gray-primary w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>

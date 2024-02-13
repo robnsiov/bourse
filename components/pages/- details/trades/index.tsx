@@ -1,4 +1,20 @@
-const Trades = () => {
+import TradesImpl from "./types";
+import cls from "classnames";
+
+const Trades = ({
+  getBvalAverage30Day,
+  getBvalAverage7To30Day,
+  getBvalAverage7To90Day,
+  getBvalAverage90Day,
+  getBvolAverage30DayTable,
+  getBvolAverage90DayTable,
+  getBvolTable,
+  getMvTable,
+  getToBvolAverage30DayTable,
+  getToBvolAverage90DayTable,
+  getTvalTable,
+  getTvolTable,
+}: TradesImpl) => {
   return (
     <>
       <div
@@ -22,37 +38,59 @@ const Trades = () => {
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 حجم مبنا
               </div>
-              <div className="text-[#070707] text-[14px]">16M</div>
+              <div className="text-[#070707] text-[14px]">
+                {getBvolTable().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start mb-3">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 حجم معاملات روز
               </div>
-              <div className="text-[#070707] text-[14px]">39.6M</div>
+              <div className="text-[#070707] text-[14px]">
+                {getTvolTable().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start mb-3">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 میانگین حجم 30 روز
               </div>
-              <div className="text-[#070707] text-[14px]">65.2M</div>
+              <div className="text-[#070707] text-[14px]">
+                {getBvolAverage30DayTable().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start mb-3">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 میانگین حجم 90 روز
               </div>
-              <div className="text-[#070707] text-[14px]">57.0M</div>
+              <div className="text-[#070707] text-[14px]">
+                {getBvolAverage90DayTable().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start mb-3">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 نسبت حجم معاملات روز به میانگین ماه
               </div>
-              <div className="text-red-primary text-[14px]">0.6</div>
+              <div
+                className={cls(
+                  `text-[14px]`,
+                  getToBvolAverage30DayTable().color
+                )}
+              >
+                {getToBvolAverage30DayTable().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 نسبت حجم معاملات روز به میانگین 3 ماه
               </div>
-              <div className="text-red-primary text-[14px]">0.7</div>
+              <div
+                className={cls(
+                  `text-[14px]`,
+                  getToBvolAverage90DayTable().color
+                )}
+              >
+                {getToBvolAverage90DayTable().value}
+              </div>
             </div>
           </div>
           <div className="w-1/2 flex justify-start items-start flex-col py-5 px-4">
@@ -60,37 +98,53 @@ const Trades = () => {
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 ارزش بازار
               </div>
-              <div className="text-[#070707] text-[14px]">4,464,000 B</div>
+              <div className="text-[#070707] text-[14px]">
+                {getMvTable().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start mb-3">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 ارزش معاملات روز
               </div>
-              <div className="text-[#070707] text-[14px]">294.5 B</div>
+              <div className="text-[#070707] text-[14px]">
+                {getTvalTable().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start mb-3">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 میانگین ارزش 30 روز
               </div>
-              <div className="text-[#070707] text-[14px]">491.6 B</div>
+              <div className="text-[#070707] text-[14px]">
+                {getBvalAverage30Day().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start mb-3">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 میانگین ارزش 90 روز
               </div>
-              <div className="text-[#070707] text-[14px]">408.8 B</div>
+              <div className="text-[#070707] text-[14px]">
+                {getBvalAverage90Day().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start mb-3">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 نسبت ارزش معاملات هفته به ماه
               </div>
-              <div className="text-green-primary text-[14px]">1.1</div>
+              <div
+                className={cls(`text-[14px]`, getBvalAverage7To30Day().color)}
+              >
+                {getBvalAverage7To30Day().value}
+              </div>
             </div>
             <div className="w-full flex justify-between items-start">
               <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
                 نسبت ارزش معاملات هفته به 3 ماه
               </div>
-              <div className="text-green-primary text-[14px]">1.1</div>
+              <div
+                className={cls(`text-[14px]`, getBvalAverage7To90Day().color)}
+              >
+                {getBvalAverage7To90Day().value}
+              </div>
             </div>
           </div>
         </div>

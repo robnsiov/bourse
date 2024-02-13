@@ -1,12 +1,12 @@
 import Details from "@/components/pages/- details";
 
 // searchParams is here
-const Page = ({ params }: { params: Array<string> }) => {
-  // params[0] => id
-  // params[1] => symboleView
+const Page = ({ params }: { params: { slug: Array<string> } }) => {
+  // params.slug[0] => id
+  // params.slug[1] => symboleView
   return (
     <>
-      <Details id={params[0]} />
+      <Details id={params.slug[0]} />
     </>
   );
 };
