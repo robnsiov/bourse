@@ -55,8 +55,8 @@ const Overview = ({
             </div>
           </div>
         </div>
-        <div className="w-full mt-1">
-          <span className="text-[12px] text-blue-secondary mr-[22px]">
+        <div className="w-full mt-1 flex justify-end items-start">
+          <span className="text-[12px] text-blue-secondary w-[calc(100%-22px)]">
             {getGroupName()}
           </span>
         </div>
