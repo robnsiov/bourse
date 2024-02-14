@@ -190,18 +190,23 @@ const Informations = ({
                       className="text-[12px] font-inter w-1/3 text-center  
                     "
                     >
-                      <div className="relative inline-block underline underline-offset-2 group cursor-pointer">
+                      <div className="relative inline-block underline underline-offset-2 group px-2 cursor-pointer">
                         {row[0]}
                         <div
-                          className="absolute text-white bg-blue-300 text-[12px]
-                       top-1/2 -translate-y-1/2 px-0.5 left-[calc(100%+6px)] z-10
+                          className="absolute 
+                       top-1/2 -translate-y-1/2  left-[calc(100%-2px)] z-10 
                       invisible opacity-0
-                       transition-all duration-150 group-hover:opacity-100 group-hover:visible"
+                       transition-all duration-150 group-hover:opacity-100 group-hover:visible rounded-[3px]"
+                          style={{
+                            boxShadow:
+                              "0px 0px 3.4000000953674316px 0px #0000004D",
+                          }}
                           dir="ltr"
                         >
                           <div
                             className={cls(
-                              `relative z-20 flex justify-start items-center`,
+                              `relative z-20 flex justify-start items-center 
+                              bg-white text-[11px] px-1 py-0.5 rounded-[3px]`,
                               row[4].color
                             )}
                           >
@@ -212,8 +217,12 @@ const Informations = ({
                             <span>{row[4].value}</span> <span>%</span>
                           </div>
                           <div
-                            className="w-[7px] h-[7px] bg-blue-300 absolute top-1/2 -translate-y-1/2
-                        left-[-3px] rotate-45 z-10"
+                            className="w-[6px] h-[6px] bg-white absolute top-1/2 -translate-y-1/2
+                        left-[-2px] rotate-45"
+                            style={{
+                              boxShadow:
+                                "0px 0px 3.4000000953674316px 0px #0000004D",
+                            }}
                           ></div>
                         </div>
                       </div>
@@ -243,18 +252,23 @@ const Informations = ({
                       className="text-[12px] font-inter w-1/3 text-center  
                     "
                     >
-                      <div className="relative inline-block underline underline-offset-2 group cursor-pointer">
+                      <div className="relative inline-block underline underline-offset-2 group cursor-pointer px-2">
                         {row[2]}
                         <div
-                          className="absolute text-white bg-blue-300 text-[12px]
-                       top-1/2 -translate-y-1/2 px-0.5 right-[calc(100%+6px)] z-10
+                          className="absolute 
+                       top-1/2 -translate-y-1/2  right-[calc(100%-2px)] z-10 
                       invisible opacity-0
-                       transition-all duration-150 group-hover:opacity-100 group-hover:visible"
+                       transition-all duration-150 group-hover:opacity-100 group-hover:visible rounded-[3px]"
+                          style={{
+                            boxShadow:
+                              "0px 0px 3.4000000953674316px 0px #0000004D",
+                          }}
                           dir="ltr"
                         >
                           <div
                             className={cls(
-                              `relative z-20 flex justify-start items-center`,
+                              `relative z-20 flex justify-start items-center 
+                              bg-white text-[11px] px-1 py-0.5 rounded-[3px]`,
                               row[4].color
                             )}
                           >
@@ -265,8 +279,12 @@ const Informations = ({
                             <span>{row[4].value}</span> <span>%</span>
                           </div>
                           <div
-                            className="w-[7px] h-[7px] bg-blue-300 absolute top-1/2 -translate-y-1/2
-                        right-[-3px] rotate-45 z-10"
+                            className="w-[6px] h-[6px] bg-white absolute top-1/2 -translate-y-1/2
+                        right-[-2px] rotate-45"
+                            style={{
+                              boxShadow:
+                                "0px 0px 3.4000000953674316px 0px #0000004D",
+                            }}
                           ></div>
                         </div>
                       </div>

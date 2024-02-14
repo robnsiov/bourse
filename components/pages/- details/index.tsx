@@ -49,14 +49,33 @@ const Details = ({ id }: DetailsImpl) => {
     getSellBuyRangeSlider,
     getRealBuyAndSellInfos,
     getLegalBuyAndSellInfos,
+    getNetProfitGrowthComparedPreviousSeason,
+    incomeGrowthComparedThePreviousMonth,
+    netProfitGrowthComparedTheSameQuarter,
+    operatingProfitGrowthComparedThePreviousQuarter,
+    operatingProfitGrowthComparedTheSameQuarter,
+    revenueGrowthComparedTheSameMonthLastYear,
+    CLOSED,
   } = useDetails({ id });
   return (
     <>
       <div className="w-full flex justify-start items-start">
-        {loadedeAPIS && (
+        {CLOSED === "نماد بسته است" && loadedeAPIS && (
+          <p className="bg-red-500 text-[24px] mr-9 p-2 text-white">
+            نماد بسته است
+          </p>
+        )}
+        {!loadedeAPIS && (
+          <>
+            <p className="bg-blue-500 text-white p-3">
+              در حال بارگزاری دیتا ...
+            </p>
+          </>
+        )}
+        {loadedeAPIS && !CLOSED && (
           <>
             <div className="w-full flex justify-start items-start flex-col p-5">
-              {/* <Chart /> */}
+              <Chart />
               <Informations
                 getLegalBuyAndSellInfos={getLegalBuyAndSellInfos}
                 getRealBuyAndSellInfos={getRealBuyAndSellInfos}
@@ -64,7 +83,7 @@ const Details = ({ id }: DetailsImpl) => {
                 getSellRows={getSellRows}
                 getSellBuyRangeSlider={getSellBuyRangeSlider}
               />
-              {/* <div className="w-[516px] flex justify-start items-start flex-col">
+              <div className="w-[516px] flex justify-start items-start flex-col">
                 <Trades
                   getBvalAverage30Day={getBvalAverage30Day}
                   getBvalAverage7To30Day={getBvalAverage7To30Day}
@@ -93,9 +112,27 @@ const Details = ({ id }: DetailsImpl) => {
                     getSymbolEfficiencyThreeMonths
                   }
                 />
-              </div> */}
+              </div>
             </div>
             <Overview
+              getNetProfitGrowthComparedPreviousSeason={
+                getNetProfitGrowthComparedPreviousSeason
+              }
+              incomeGrowthComparedThePreviousMonth={
+                incomeGrowthComparedThePreviousMonth
+              }
+              netProfitGrowthComparedTheSameQuarter={
+                netProfitGrowthComparedTheSameQuarter
+              }
+              operatingProfitGrowthComparedThePreviousQuarter={
+                operatingProfitGrowthComparedThePreviousQuarter
+              }
+              operatingProfitGrowthComparedTheSameQuarter={
+                operatingProfitGrowthComparedTheSameQuarter
+              }
+              revenueGrowthComparedTheSameMonthLastYear={
+                revenueGrowthComparedTheSameMonthLastYear
+              }
               getFinalPrice={getFinalPrice}
               getGroupPE={getGroupPE}
               getLastPrice={getLastPrice}

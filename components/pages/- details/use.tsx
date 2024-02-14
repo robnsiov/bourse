@@ -4,6 +4,7 @@ import APIS from "@/apis";
 import { useQueries, useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
 import {
+  calculateProfit,
   convertToInternationalCurrencySystem,
   numberWithCommas,
 } from "@/utils/symbol-detail";
@@ -42,27 +43,36 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     });
   };
 
+  // symbolGetSessionGrowthRate
+  const symbolGetSessionGrowthRateQueryFn = () => {
+    return Axios<{ data: any }>({
+      method: "GET",
+      url: `${APIS.symbolGetSessionGrowthRate}?exchange_number=${id}`,
+    });
+  };
+
   const results = useQueries({
     queries: [
       {
         queryKey: ["symbolGeneralInfo"],
         queryFn: symbolGeneralInfoQueryFn,
-        staleTime: Infinity,
+        refetchInterval: 5000,
       },
       {
         queryKey: ["symbolGetCartData"],
         queryFn: symbolGetCartDataQueryFn,
-        staleTime: Infinity,
       },
       {
         queryKey: ["symbolGetEfficiency"],
         queryFn: symbolGetEfficiencyQueryFn,
-        staleTime: Infinity,
       },
       {
         queryKey: ["industryGetEfficiency"],
         queryFn: industryGetEfficiencyQueryFn,
-        staleTime: Infinity,
+      },
+      {
+        queryKey: ["symbolGetSessionGrowthRateQueryFn"],
+        queryFn: symbolGetSessionGrowthRateQueryFn,
       },
     ],
   });
@@ -71,6 +81,7 @@ const useDetails = ({ id }: UseDetailsImpl) => {
   const symbolGetCartData = results[1].data?.data as any;
   const symbolGetEfficiency = results[2].data?.data as any;
   const industryGetEfficiency = results[3].data?.data as any;
+  const symbolGetSessionGrowthRate = results[4].data?.data as any;
 
   // last price = pl
 
@@ -161,6 +172,81 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     const data = { value: "0", color: "" };
     const group_pe = symbolGetCartData.group_pe;
     data.value = convertToInternationalCurrencySystem(group_pe);
+    return data;
+  };
+
+  const getNetProfitGrowthComparedPreviousSeason = () => {
+    const data = { color: "", percentage: "0", text: "" };
+    const { color, percentage, text } = calculateProfit(
+      symbolGetSessionGrowthRate.last_season_net_profit,
+      symbolGetSessionGrowthRate.ago_season_net_profit
+    );
+    data.color = color;
+    data.percentage = percentage;
+    data.text = text;
+    return data;
+  };
+
+  const netProfitGrowthComparedTheSameQuarter = () => {
+    const data = { color: "", percentage: "0", text: "" };
+    const { color, percentage, text } = calculateProfit(
+      symbolGetSessionGrowthRate.last_season_net_profit,
+      symbolGetSessionGrowthRate.ago_year_season_net_profit
+    );
+    data.color = color;
+    data.percentage = percentage;
+    data.text = text;
+    return data;
+  };
+
+  const operatingProfitGrowthComparedThePreviousQuarter = () => {
+    const data = { color: "", percentage: "0", text: "" };
+    const { color, percentage, text } = calculateProfit(
+      symbolGetSessionGrowthRate.last_season_operation_profit,
+      symbolGetSessionGrowthRate.ago_season_operation_profit
+    );
+    data.color = color;
+    data.percentage = percentage;
+    data.text = text;
+
+    return data;
+  };
+
+  const operatingProfitGrowthComparedTheSameQuarter = () => {
+    const data = { color: "", percentage: "0", text: "" };
+    const { color, percentage, text } = calculateProfit(
+      symbolGetSessionGrowthRate.last_season_operation_profit,
+      symbolGetSessionGrowthRate.ago_year_season_operation_profit
+    );
+    data.color = color;
+    data.percentage = percentage;
+    data.text = text;
+
+    return data;
+  };
+  const incomeGrowthComparedThePreviousMonth = () => {
+    const data = { color: "", percentage: "0", text: "" };
+
+    const growth = symbolGetSessionGrowthRate.monthly_performance_rate;
+    if (growth < 0) data.color = "text-red-primary";
+    else data.color = "text-green-primary";
+    data.percentage = growth;
+    if (growth > 0) data.text = "کاهش درآمد";
+    else data.text = "رشد درآمد";
+
+    return data;
+  };
+
+  const revenueGrowthComparedTheSameMonthLastYear = () => {
+    const data = { color: "", percentage: "0", text: "" };
+
+    const growth = symbolGetSessionGrowthRate.yearly_performance_rate;
+    if (growth < 0) data.color = "text-red-primary";
+    else data.color = "text-green-primary";
+    data.percentage = growth;
+    if (growth > 0) data.text = "کاهش درآمد";
+    else data.text = "رشد درآمد";
+
     return data;
   };
 
@@ -650,7 +736,10 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     symbolGeneralInfo &&
     symbolGetCartData &&
     symbolGetEfficiency &&
-    industryGetEfficiency;
+    industryGetEfficiency &&
+    symbolGetSessionGrowthRate;
+
+  const CLOSED = symbolGeneralInfo?.closed;
 
   return {
     // loaded
@@ -698,6 +787,13 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     getSellBuyRangeSlider,
     getRealBuyAndSellInfos,
     getLegalBuyAndSellInfos,
+    getNetProfitGrowthComparedPreviousSeason,
+    incomeGrowthComparedThePreviousMonth,
+    netProfitGrowthComparedTheSameQuarter,
+    operatingProfitGrowthComparedThePreviousQuarter,
+    operatingProfitGrowthComparedTheSameQuarter,
+    revenueGrowthComparedTheSameMonthLastYear,
+    CLOSED,
   };
 };
 export default useDetails;

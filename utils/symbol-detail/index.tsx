@@ -1,4 +1,28 @@
+function calculateProfit(num1: any, num2: any) {
+  var color = "text-green-primary";
+  var text = "";
+  if (num1 < 0 && num2 < 0 && num1 < num2) {
+    text = "افزایش زیان";
+    color = "red";
+  } else if (num1 < 0 && num2 < 0 && num1 > num2) {
+    text = "text-green-primary";
+    color = "green";
+  } else if ((num1 / num2 - 1) * 100 < 0) {
+    text = "کاهش سود";
+    color = "text-red-primary";
+  } else {
+    text = "افزایش سود";
+    color = "text-green-primary";
+  }
+  return {
+    color: color,
+    percentage: Math.abs((num1 / num2 - 1) * 100).toFixed(1),
+    text: text,
+  };
+}
+
 function numberWithCommas(x: any) {
+  if (!x) return "0";
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
@@ -15,4 +39,8 @@ function convertToInternationalCurrencySystem(labelValue: any) {
     : numberWithCommas(Math.abs(Number(labelValue)).toFixed(2)) + "";
 }
 
-export { numberWithCommas, convertToInternationalCurrencySystem };
+export {
+  numberWithCommas,
+  convertToInternationalCurrencySystem,
+  calculateProfit,
+};

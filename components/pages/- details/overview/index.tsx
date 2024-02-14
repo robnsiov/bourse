@@ -19,7 +19,49 @@ const Overview = ({
   getSymbolLogo,
   getSymbol,
   getSymbolName,
+  getNetProfitGrowthComparedPreviousSeason,
+  incomeGrowthComparedThePreviousMonth,
+  netProfitGrowthComparedTheSameQuarter,
+  operatingProfitGrowthComparedThePreviousQuarter,
+  operatingProfitGrowthComparedTheSameQuarter,
+  revenueGrowthComparedTheSameMonthLastYear,
 }: OverviewImpl) => {
+  const {
+    color: previousSeasonColor,
+    percentage: previousSeasonPerc,
+    text: previousSeasonText,
+  } = getNetProfitGrowthComparedPreviousSeason();
+
+  const {
+    color: previousMonthColor,
+    percentage: previousMonthPerc,
+    text: previousMonthText,
+  } = incomeGrowthComparedThePreviousMonth();
+
+  const {
+    color: sameQuarterColor,
+    percentage: sameQuarterPerc,
+    text: sameQuarterText,
+  } = netProfitGrowthComparedTheSameQuarter();
+
+  const {
+    color: previousQuarterColor,
+    percentage: previousQuarterPerc,
+    text: previousQuarterText,
+  } = operatingProfitGrowthComparedThePreviousQuarter();
+
+  const {
+    color: opPreviousQuarterColor,
+    percentage: opPreviousQuarterPerc,
+    text: opPreviousQuarterText,
+  } = operatingProfitGrowthComparedTheSameQuarter();
+
+  const {
+    color: lastYearColor,
+    percentage: lastYearPerc,
+    text: lastYearText,
+  } = revenueGrowthComparedTheSameMonthLastYear();
+
   return (
     <>
       <div
@@ -30,8 +72,8 @@ const Overview = ({
         <div className="w-full flex justify-start items-start flex-col">
           <h3 className="text-[30px]">نمای کلی</h3>
           <div className="w-full flex justify-between items-center mt-12">
-            <div className="relative min-w-[6px] h-[6px] rounded-full bg-[#28C278]">
-              <span className="absolute -inset-[2px] rounded-full bg-[#28c27847]"></span>
+            <div className="relative flex justify-start items-start min-w-[9px] h-[9px] rounded-full bg-[#28c27847] p-[2px]">
+              <div className=" h-full w-full bg-[#28C278] rounded-full"></div>
             </div>
             <div
               className="min-w-[36px] max-w-[36px] h-[37px] rounded-[6px] border-[2px] border-blue-secondary
@@ -156,44 +198,86 @@ const Overview = ({
         </div>
         <div className="border-gray-primary w-full h-[1px] border-b-[1px] opacity-10 mb-[20px]"></div>
         <h3 className="text-[20px] font-medium mb-[10px] -mt-2">
-          نرخ رشد فملی
+          نرخ رشد {getSymbol()}
         </h3>
         <div className="w-full flex justify-start items-start flex-col">
-          <div className="w-full flex justify-between items-start mb-3">
-            <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
+          <div className="w-full flex justify-between items-start mb-3  text-[14px]">
+            <div className="text-gray-primary max-w-[160px] font-iransansx">
               رشد سود خالص نسبت به فصل قبل
             </div>
-            <div className="text-red-primary text-[14px]">20%-</div>
+            <div className={cls(previousSeasonColor)}>
+              <div>
+                <span dir="ltr">%{previousSeasonPerc} </span>
+                {/* <span className="font-iransansx text-[12px] mr-1">
+                  {previousSeasonText} خالص
+                </span> */}
+              </div>
+            </div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد سود خالص نسبت به فصل مشابه
             </div>
-            <div className="text-green-primary text-[14px]">23%+</div>
+            <div className={cls(sameQuarterColor)}>
+              <div>
+                <span dir="ltr">%{sameQuarterPerc} </span>
+                {/* <span className="font-iransansx text-[12px] mr-1">
+                  {sameQuarterText} خالص
+                </span> */}
+              </div>
+            </div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد سود عملیاتی نسبت به فصل قبل
             </div>
-            <div className="text-red-primary text-[14px]">83%-</div>
+            <div className={cls(previousQuarterColor)}>
+              <div>
+                <span dir="ltr">%{previousQuarterPerc} </span>
+                {/* <span className="font-iransansx text-[12px] mr-1">
+                  {previousQuarterText} عملیاتی
+                </span> */}
+              </div>
+            </div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد سود عملیاتی نسبت به فصل مشابه
             </div>
-            <div className="text-green-primary text-[14px]">33%+</div>
+            <div className={cls(opPreviousQuarterColor)}>
+              <div>
+                <span dir="ltr">%{opPreviousQuarterPerc} </span>
+                {/* <span className="font-iransansx text-[12px] mr-1">
+                  {opPreviousQuarterText} عملیاتی
+                </span> */}
+              </div>
+            </div>
           </div>
           <div className="w-full flex justify-between items-start mb-3">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد درآمد نسبت به ماه قبل
             </div>
-            <div className="text-green-primary text-[14px]">15%+</div>
+            <div className={cls(previousMonthColor)}>
+              <div>
+                <span dir="ltr">%{previousMonthPerc} </span>
+                {/* <span className="font-iransansx text-[12px] mr-1">
+                  {previousMonthText}
+                </span> */}
+              </div>
+            </div>
           </div>
           <div className="w-full flex justify-between items-start">
             <div className="text-gray-primary max-w-[160px] font-iransansx text-[14px]">
               رشد درآمد نسبت به ماه مشابه سال قبل
             </div>
-            <div className="text-green-primary text-[14px]">16%+</div>
+            <div className={cls(lastYearColor)}>
+              <div>
+                <span dir="ltr">%{lastYearPerc} </span>
+                {/* <span className="font-iransansx text-[12px] mr-1">
+                  {lastYearText}
+                </span> */}
+              </div>
+            </div>
           </div>
         </div>
       </div>

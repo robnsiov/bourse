@@ -3,13 +3,13 @@
 import Link from "next/link";
 import useRightSidebar from "./use";
 import cls from "classnames";
-import searchIcon from "../../../../public/icons/search.svg";
 import rightToggleIcon from "../../../../public/icons/right-toggle.svg";
 import alertIcon from "../../../../public/icons/alert.svg";
 import sunIcon from "../../../../public/icons/sun.svg";
 import goldIcon from "../../../../public/icons/gold.svg";
 import silverIcon from "../../../../public/icons/silver.svg";
 import Image from "next/image";
+import SearchSymbols from "./search-symbols";
 
 const RightSidebar = () => {
   const { links, pathname } = useRightSidebar();
@@ -29,7 +29,7 @@ const RightSidebar = () => {
             className="object-contain scale-[3.5] rotate-[-18deg] opacity-80"
           />
         </div>
-        <div className="w-[85%] flex justify-start items-start flex-col relative z-20">
+        <div className="w-[85%] flex justify-start items-start flex-col relative z-30">
           <div className="flex justify-start items-center relative mb-10">
             <div className="min-w-[51px] max-w-[51px] aspect-square rounded-full overflow-hidden">
               <Image
@@ -71,16 +71,7 @@ const RightSidebar = () => {
               />
             </div>
           </div>
-          <div className="w-full relative">
-            <input
-              className="w-full h-[48px] bg-transparent border-2 pl-3 pr-10 mb-3 rounded-[9px] 
-            border-blue-secondary outline-none placeholder:text-[19px]"
-              placeholder="جستجوی  نماد/صنعت"
-            />
-            <div className="absolute top-[10px] right-3 cursor-pointer">
-              <Image src={searchIcon} alt="search-icon" width={24} />
-            </div>
-          </div>
+          <SearchSymbols />
           <div className="w-full h-[1px] border-b-[1px] mb-1 border-white opacity-10"></div>
         </div>
         <div className="flex justify-start items-start flex-col p-2 w-full relative z-20">
