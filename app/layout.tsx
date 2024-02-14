@@ -52,23 +52,23 @@ const iranSansX = localFont({
     },
   ],
 });
-const peyda = localFont({
-  variable: "--font-peyda",
-  src: [
-    {
-      path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Light.woff2",
-      weight: "300",
-    },
-    {
-      path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Regular.woff2",
-      weight: "400",
-    },
-    {
-      path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Medium.woff2",
-      weight: "500",
-    },
-  ],
-});
+// const peyda = localFont({
+//   variable: "--font-peyda",
+//   src: [
+//     {
+//       path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Light.woff2",
+//       weight: "300",
+//     },
+//     {
+//       path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Regular.woff2",
+//       weight: "400",
+//     },
+//     {
+//       path: "../public/fonts/Peyda-3/woff2/PeydaWeb-Medium.woff2",
+//       weight: "500",
+//     },
+//   ],
+// });
 
 import type { Metadata } from "next";
 import "./globals.css";
@@ -89,7 +89,8 @@ export default function RootLayout({
   return (
     <html>
       <body
-        className={`${morabba.className} ${iranSansX.variable} ${inter.variable} ${peyda.variable}`}
+        className={`${morabba.className} ${iranSansX.variable} ${inter.variable}`}
+        // className={`${morabba.className} ${iranSansX.variable} ${inter.variable} ${peyda.variable}`}
         dir="rtl"
       >
         <RootProvider>
