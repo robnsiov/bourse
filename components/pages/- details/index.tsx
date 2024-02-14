@@ -44,6 +44,9 @@ const Details = ({ id }: DetailsImpl) => {
     getSymbolLogo,
     getSymbol,
     getSymbolName,
+    getBuyRows,
+    getSellRows,
+    getSellBuyRangeSlider,
   } = useDetails({ id });
   return (
     <>
@@ -52,8 +55,12 @@ const Details = ({ id }: DetailsImpl) => {
           <>
             <div className="w-full flex justify-start items-start flex-col p-5">
               {/* <Chart /> */}
-              {/* <Informations /> */}
-              <div className="w-[516px] flex justify-start items-start flex-col">
+              <Informations
+                getBuyRows={getBuyRows}
+                getSellRows={getSellRows}
+                getSellBuyRangeSlider={getSellBuyRangeSlider}
+              />
+              {/* <div className="w-[516px] flex justify-start items-start flex-col">
                 <Trades
                   getBvalAverage30Day={getBvalAverage30Day}
                   getBvalAverage7To30Day={getBvalAverage7To30Day}
@@ -82,7 +89,7 @@ const Details = ({ id }: DetailsImpl) => {
                     getSymbolEfficiencyThreeMonths
                   }
                 />
-              </div>
+              </div> */}
             </div>
             <Overview
               getFinalPrice={getFinalPrice}

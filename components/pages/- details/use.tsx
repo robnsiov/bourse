@@ -366,9 +366,40 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     data.topBuy = symbolGeneralInfo.ct_Buy_CountI;
     data.topSell = symbolGeneralInfo.ct_Sell_CountI;
   };
+
   // add legal
 
+  const calculateHighiesOrderVolume = () => {
+    const positive_orders = [];
+    const negative_orders = [];
+    let orders_highest_volume = 0;
+    for (let i = 1; i < 22; i++) {
+      if (symbolGeneralInfo["zd" + i]) {
+        positive_orders.push({
+          zd: symbolGeneralInfo["zd" + i],
+          qd: symbolGeneralInfo["qd" + i],
+          pd: symbolGeneralInfo["pd" + i],
+        });
+        if (symbolGeneralInfo["qd" + i] > orders_highest_volume) {
+          orders_highest_volume = symbolGeneralInfo["qd" + i];
+        }
+      }
+      if (symbolGeneralInfo["zo" + i]) {
+        negative_orders.push({
+          zo: symbolGeneralInfo["zo" + i],
+          qo: symbolGeneralInfo["qo" + i],
+          po: symbolGeneralInfo["po" + i],
+        });
+        if (symbolGeneralInfo["qo" + i] > orders_highest_volume) {
+          orders_highest_volume = symbolGeneralInfo["qo" + i];
+        }
+      }
+    }
+    return orders_highest_volume;
+  };
+
   const getBuyRows = () => {
+    const HOV = calculateHighiesOrderVolume();
     const {
       zd1,
       qd1,
@@ -395,7 +426,7 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     ];
 
     rows.forEach((row) => {
-      row.push(90); // percent
+      row.push((+row[1] / HOV) * 100); // percent
       const res = (+row[0] / +symbolGeneralInfo.py - 1) * 100;
 
       row.push({
@@ -415,6 +446,7 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     return rows;
   };
   const getSellRows = () => {
+    const HOV = calculateHighiesOrderVolume();
     const {
       zo1,
       qo1,
@@ -440,7 +472,7 @@ const useDetails = ({ id }: UseDetailsImpl) => {
       [zo5, qo5, po5],
     ];
     rows.forEach((row) => {
-      row.push(90); // percent
+      row.push((+row[1] / HOV) * 100); // percent
       const res = (+row[2] / +symbolGeneralInfo.py - 1) * 100;
 
       row.push({
@@ -474,7 +506,17 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     const leftSignUp = range_point_calc(symbolGeneralInfo.pc);
     const sellLeft = range_point_calc(symbolGeneralInfo.pmin);
     const rightBuy = 100 - +range_point_calc(symbolGeneralInfo.pmax);
-    return { min, middle, max, leftSignDown, leftSignUp, sellLeft, rightBuy };
+    const py = symbolGeneralInfo.py;
+    return {
+      min,
+      middle,
+      max,
+      leftSignDown,
+      leftSignUp,
+      sellLeft,
+      rightBuy,
+      py,
+    };
 
     // note : convert data to with commas (fow showing)
     // add right 50% for selll & left 50% for buy
@@ -584,6 +626,9 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     getSymbolEfficiencyOneWeek,
     getSymbolEfficiencyOneYear,
     getSymbolEfficiencyThreeMonths,
+    getBuyRows,
+    getSellRows,
+    getSellBuyRangeSlider,
   };
 };
 export default useDetails;
