@@ -47,6 +47,8 @@ const Details = ({ id }: DetailsImpl) => {
     getBuyRows,
     getSellRows,
     getSellBuyRangeSlider,
+    getRealBuyAndSellInfos,
+    getLegalBuyAndSellInfos,
   } = useDetails({ id });
   return (
     <>
@@ -56,6 +58,8 @@ const Details = ({ id }: DetailsImpl) => {
             <div className="w-full flex justify-start items-start flex-col p-5">
               {/* <Chart /> */}
               <Informations
+                getLegalBuyAndSellInfos={getLegalBuyAndSellInfos}
+                getRealBuyAndSellInfos={getRealBuyAndSellInfos}
                 getBuyRows={getBuyRows}
                 getSellRows={getSellRows}
                 getSellBuyRangeSlider={getSellBuyRangeSlider}

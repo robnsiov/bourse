@@ -354,17 +354,85 @@ const useDetails = ({ id }: UseDetailsImpl) => {
   // real & legal
 
   // real
+
+  const getRealByPercentage = () => {
+    return (
+      (symbolGeneralInfo.ct_Buy_I_Volume /
+        (symbolGeneralInfo.ct_Buy_I_Volume +
+          symbolGeneralInfo.ct_Buy_N_Volume)) *
+      100
+    ).toFixed(1);
+  };
+
   const getRealBuyAndSellInfos = () => {
     const data = {
       topSell: "0",
       topBuy: "0",
       sellValue: "0",
       buyValue: "0",
-      sellButtom: "",
-      buyBottom: "",
+      sellButtom: "0",
+      buyBottom: "0",
     };
-    data.topBuy = symbolGeneralInfo.ct_Buy_CountI;
-    data.topSell = symbolGeneralInfo.ct_Sell_CountI;
+    data.topBuy = numberWithCommas(symbolGeneralInfo.ct_Buy_CountI);
+
+    data.topSell = numberWithCommas(symbolGeneralInfo.ct_Sell_CountI);
+
+    data.buyValue = (
+      (symbolGeneralInfo.ct_Buy_I_Volume /
+        (symbolGeneralInfo.ct_Buy_I_Volume +
+          symbolGeneralInfo.ct_Buy_N_Volume)) *
+      100
+    ).toFixed(1);
+
+    data.sellValue = (
+      (symbolGeneralInfo.ct_Sell_I_Volume /
+        (symbolGeneralInfo.ct_Sell_I_Volume +
+          symbolGeneralInfo.ct_Sell_N_Volume)) *
+      100
+    ).toFixed(1);
+    data.buyBottom = convertToInternationalCurrencySystem(
+      symbolGeneralInfo.ct_Buy_I_Volume
+    );
+    data.sellButtom = convertToInternationalCurrencySystem(
+      symbolGeneralInfo.ct_Sell_I_Volume
+    );
+
+    return data;
+  };
+  const getLegalBuyAndSellInfos = () => {
+    const data = {
+      topSell: "0",
+      topBuy: "0",
+      sellValue: "0",
+      buyValue: "0",
+      sellButtom: "0",
+      buyBottom: "0",
+    };
+    data.topBuy = numberWithCommas(symbolGeneralInfo.ct_Buy_CountN);
+
+    data.topSell = numberWithCommas(symbolGeneralInfo.ct_Sell_CountN);
+
+    data.buyValue = (
+      (symbolGeneralInfo.ct_Buy_N_Volume /
+        (symbolGeneralInfo.ct_Buy_N_Volume +
+          symbolGeneralInfo.ct_Buy_I_Volume)) *
+      100
+    ).toFixed(1);
+
+    data.sellValue = (
+      (symbolGeneralInfo.ct_Sell_N_Volume /
+        (symbolGeneralInfo.ct_Sell_N_Volume +
+          symbolGeneralInfo.ct_Sell_I_Volume)) *
+      100
+    ).toFixed(1);
+    data.buyBottom = convertToInternationalCurrencySystem(
+      symbolGeneralInfo.ct_Buy_N_Volume
+    );
+    data.sellButtom = convertToInternationalCurrencySystem(
+      symbolGeneralInfo.ct_Sell_N_Volume
+    );
+
+    return data;
   };
 
   // add legal
@@ -545,7 +613,6 @@ const useDetails = ({ id }: UseDetailsImpl) => {
       !industryGetEfficiency
     )
       return;
-    console.log(getSellBuyRangeSlider());
     // console.log(getSymbolEfficiencyOneMonth());
     // console.log(getIndustryEffsiciencyOneYear());
     // console.log(getBuyRows());
@@ -629,6 +696,8 @@ const useDetails = ({ id }: UseDetailsImpl) => {
     getBuyRows,
     getSellRows,
     getSellBuyRangeSlider,
+    getRealBuyAndSellInfos,
+    getLegalBuyAndSellInfos,
   };
 };
 export default useDetails;

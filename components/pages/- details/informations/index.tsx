@@ -14,6 +14,8 @@ const Informations = ({
   getBuyRows,
   getSellRows,
   getSellBuyRangeSlider,
+  getRealBuyAndSellInfos,
+  getLegalBuyAndSellInfos,
 }: InformationsImpl) => {
   const [outsideParent, setOutsideParent] = useState<"left" | "right">("left");
   const { ref: mouseRef, x } = useMouse();
@@ -78,6 +80,24 @@ const Informations = ({
       return;
     }
   }, [countMove]);
+
+  const {
+    buyBottom: buyBottomReal,
+    buyValue: buyValueReal,
+    sellButtom: sellButtomReal,
+    sellValue: sellValueReal,
+    topBuy: topBuyReal,
+    topSell: topSellReal,
+  } = getRealBuyAndSellInfos();
+
+  const {
+    buyBottom: buyBottomLegal,
+    buyValue: buyValueLegal,
+    sellButtom: sellButtomLegal,
+    sellValue: sellValueLegal,
+    topBuy: topBuyLegal,
+    topSell: topSellLegal,
+  } = getLegalBuyAndSellInfos();
 
   return (
     <>
@@ -270,45 +290,18 @@ const Informations = ({
 
           <div className="w-full flex justify-start items-center">
             <div className="w-full flex justify-center items-center flex-col text-center">
-              <span className="font-inter text-[11px] mb-0.5">845</span>
-              <div className="w-full bg-gray-secondary h-[5px] relative rounded-[5px]">
-                <span
-                  className="absolute left-0 top-0 bottom-0 w-[60%]
-                     bg-green-primary rounded-[5px]"
-                ></span>
-              </div>
-              <span className="font-inter text-[11px] mt-0.5">
-                (29.8%) 11.8 M
+              <span className="font-inter text-[11px] mb-0.5">
+                {topBuyReal}
               </span>
-            </div>
-
-            <span className="mx-2 text-[14px] font-medium whitespace-nowrap">
-              حقیقی
-            </span>
-            <div className="w-full flex justify-center items-center flex-col text-center">
-              <span className="font-inter text-[11px] mb-0.5">845</span>
               <div className="w-full bg-gray-secondary h-[5px] relative rounded-[5px]">
                 <span
-                  className="absolute right-0 top-0 bottom-0 w-[40%]
-                     bg-red-primary rounded-[5px]"
+                  className="absolute left-0 top-0 bottom-0 
+                     bg-green-primary rounded-[5px] transition-all duration-150"
+                  style={{ width: `${buyValueReal}%` }}
                 ></span>
               </div>
-              <span className="font-inter text-[11px] mt-0.5">
-                (29.8%) 11.8 M
-              </span>
-            </div>
-          </div>
-          <div className="w-full flex justify-start items-center mt-3">
-            <div className="w-full flex justify-center items-center flex-col text-center">
-              <span className="font-inter text-[11px] mb-0.5">845</span>
-              <div className="w-full bg-gray-secondary h-[5px] relative rounded-[5px]">
-                <span
-                  className="absolute left-0 top-0 bottom-0 w-[60%]
-                     bg-green-primary rounded-[5px]"
-                ></span>
-              </div>
-              <span className="font-inter text-[11px] mt-0.5">
-                (29.8%) 11.8 M
+              <span className="font-inter text-[11px] mt-0.5" dir="ltr">
+                (%{buyValueReal}) {buyBottomReal}
               </span>
             </div>
 
@@ -316,15 +309,54 @@ const Informations = ({
               حقوقی
             </span>
             <div className="w-full flex justify-center items-center flex-col text-center">
-              <span className="font-inter text-[11px] mb-0.5">845</span>
+              <span className="font-inter text-[11px] mb-0.5">
+                {topSellReal}
+              </span>
               <div className="w-full bg-gray-secondary h-[5px] relative rounded-[5px]">
                 <span
-                  className="absolute right-0 top-0 bottom-0 w-[40%]
+                  className="absolute right-0 top-0 bottom-0 transition-all duration-150
                      bg-red-primary rounded-[5px]"
+                  style={{ width: `${sellValueReal}%` }}
                 ></span>
               </div>
-              <span className="font-inter text-[11px] mt-0.5">
-                (29.8%) 11.8 M
+              <span className="font-inter text-[11px] mt-0.5" dir="ltr">
+                (%{sellValueReal}) {sellButtomReal}
+              </span>
+            </div>
+          </div>
+          <div className="w-full flex justify-start items-center">
+            <div className="w-full flex justify-center items-center flex-col text-center">
+              <span className="font-inter text-[11px] mb-0.5">
+                {topBuyLegal}
+              </span>
+              <div className="w-full bg-gray-secondary h-[5px] relative rounded-[5px]">
+                <span
+                  className="absolute left-0 top-0 bottom-0 
+                     bg-green-primary rounded-[5px] transition-all duration-150"
+                  style={{ width: `${buyValueLegal}%` }}
+                ></span>
+              </div>
+              <span className="font-inter text-[11px] mt-0.5" dir="ltr">
+                (%{buyValueLegal}) {buyBottomLegal}
+              </span>
+            </div>
+
+            <span className="mx-2 text-[14px] font-medium whitespace-nowrap">
+              حقیقی
+            </span>
+            <div className="w-full flex justify-center items-center flex-col text-center">
+              <span className="font-inter text-[11px] mb-0.5">
+                {topSellLegal}
+              </span>
+              <div className="w-full bg-gray-secondary h-[5px] relative rounded-[5px]">
+                <span
+                  className="absolute right-0 top-0 bottom-0 transition-all duration-150
+                     bg-red-primary rounded-[5px]"
+                  style={{ width: `${sellValueLegal}%` }}
+                ></span>
+              </div>
+              <span className="font-inter text-[11px] mt-0.5" dir="ltr">
+                (%{sellValueLegal}) {sellButtomLegal}
               </span>
             </div>
           </div>
